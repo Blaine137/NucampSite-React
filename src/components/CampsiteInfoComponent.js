@@ -49,13 +49,17 @@ class CampsiteInfo extends Component{
 
             //if campsite is not null or undefined set to a row else a empty div
         if(this.props.campsite){
-             return <div className="row"> 
-                {this.renderCampsite(this.props.campsite)}
-                {this.renderComments(this.props.campsite.comments)}
-              </div>;
-        }else{
-            return <div> </div>;
+             return (
+                <div className="container">
+                    <div className="row"> 
+                        {this.renderCampsite(this.props.campsite)}
+                        {this.renderComments(this.props.campsite.comments)}
+                    </div>
+                </div>
+            );
         }
+            return <div> </div>;
+        
 
 
     }
