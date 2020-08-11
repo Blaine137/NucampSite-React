@@ -7,7 +7,7 @@ function RenderDirectoryItem({campsite, onClick}){
 
     return(
 
-        <Card onClick={() => onClick(campsite.id)}>
+        <Card>
             <CardImg width="100%" src={campsite.image} alt={campsite.name}/>
             <CardImgOverlay>
                 <CardTitle>{campsite.name}</CardTitle>
@@ -25,7 +25,7 @@ function Directory(props) {
             return(
 
                 <div className="col-md-5 m-1" key={campsite.id}>
-                    <RenderDirectoryItem campsite={campsite} onClick={props.onClick} />
+                    <RenderDirectoryItem campsite={campsite}  />
                 </div>
 
             ); //end of return

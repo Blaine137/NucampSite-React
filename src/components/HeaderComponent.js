@@ -1,4 +1,4 @@
-import React, { Component }  from 'react';
+import React, { Component, Fragment }  from 'react';
 import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
@@ -21,7 +21,7 @@ class Header extends Component {
 
     render() {
         return (
-            <React.Fragment>
+           <Fragment>
                 <Jumbotron fluid>
                     <div className="container">
                         <div className="row">
@@ -63,7 +63,7 @@ class Header extends Component {
                         </Collapse>
                     </div>
                 </Navbar>
-            </React.Fragment>
+            </Fragment> 
         );
     }
 }
