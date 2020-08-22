@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Label, Button } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
+const required = val => val && val.length;
+const maxLength = len => val => !val || (val.length <= len);
+const minLength = len => val => val && (val.length >= len);
+
 function RenderCampsite({campsite}){
 
 
@@ -126,7 +130,21 @@ render(){
                                           id="name" 
                                           model=".name" 
                                           className="form-control" 
-                                          placeholder="Your Name" />
+                                          placeholder="Your Name"
+                                          validators={{
+                                              required,
+                                              minLength: minLength(2),
+                                              maxLength: maxLength(15)
+                                          }} />
+                            <Errors model=".name"
+                                    className="text-danger"
+                                    show="touched"
+                                    component="div"
+                                    messages={{
+                                       required: 'Required',
+                                       minLength: 'Must be at least 2 characters',
+                                       maxLength: 'Must be 15 characters or less'
+                                    }}/>
                         </div>
                         <div className="form-group">
                             <Label htmlfor="comment">Comment</Label>
