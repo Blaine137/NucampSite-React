@@ -103,6 +103,7 @@ toggleModal = () => {
 handleSubmit = (values) => {
     this.toggleModal();
     this.props.addComment(this.props.campsiteId, values.rating, values.author, values.text);
+    console.log(this.props)
 }
 
 render(){
@@ -129,10 +130,10 @@ render(){
                             </Control.select>
                         </div>
                         <div className="form-group">
-                            <Label htmlFor="name">Your Name</Label>
-                            <Control.text name="name" 
-                                          id="name" 
-                                          model=".name" 
+                            <Label htmlFor="author">Your Name</Label>
+                            <Control.text name="author" 
+                                          id="author" 
+                                          model=".author" 
                                           className="form-control" 
                                           placeholder="Your Name"
                                           validators={{
@@ -140,7 +141,7 @@ render(){
                                               minLength: minLength(2),
                                               maxLength: maxLength(15)
                                           }} />
-                            <Errors model=".name"
+                            <Errors model=".author"
                                     className="text-danger"
                                     show="touched"
                                     component="div"
@@ -151,10 +152,10 @@ render(){
                                     }}/>
                         </div>
                         <div className="form-group">
-                            <Label htmlFor="comment">Comment</Label>
-                            <Control.textarea model=".comment"
-                                              id="comment"
-                                              name="comment"
+                            <Label htmlFor="text">Comment</Label>
+                            <Control.textarea model=".text"
+                                              id="text"
+                                              name="text"
                                               className="form-control"
                                               rows="6"/>
                         </div>
