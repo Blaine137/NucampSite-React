@@ -1,6 +1,6 @@
 
 
-export const Partners = (state = {}, action) => {
+export const Partners = (state = {isLoading: true, errMess: null, partners: []}, action) => {
     switch (action.type) {
 
         case action.type.ADD_PARTNERS:
