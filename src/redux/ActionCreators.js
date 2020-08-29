@@ -194,3 +194,43 @@ export const partnersFailed = errMess => ({
     type: ActionTypes.PARTNERS_FAILED,
     payload: errMess
 });
+
+
+export const postFeedback = (feedback) => () => {
+    const newFeedback = {
+        agree: feedback.agree,
+        contactType: feedback.contactType,
+        email: feedback.email,   
+        feedback: feedback.message,
+        firstName: feedback.firstName,
+        lastName: feedback.lastName,
+        phoneNum: feedback.phoneNum,    
+    };
+
+    return fetch(baseUrl + 'feedback', {
+            method: "POST",
+            body: JSON.stringify(feedback),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => {
+                if (response.ok) {
+                 
+                    return response;
+                    
+                } else {
+                    const error = new Error(`Error ${response.status}: ${response.statusText}`);
+                    error.response = response;
+                    throw error;
+                }
+            },
+            error => { throw error; }
+        )
+        .then(response => response.json())
+        .then(response => alert(`Thank you for your feedback ${JSON.stringify(response)} `))
+        .catch(error => {
+            console.log('post feedback error ', error.message);
+            alert('Your feedback could not be posted\nError: ' + error.message);
+        });
+};
