@@ -9,6 +9,8 @@ import 'font-awesome/css/font-awesome.css';
 import 'bootstrap-social/bootstrap-social.css';
 import App from './App';
 
+// must start the json server using this line 'json-server --watch db.json -p 3001 -d 2000' before starting on localhost
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
