@@ -1,6 +1,6 @@
-import { PARTNERS } from '../shared/partners';
 
-export const Partners = (state = PARTNERS, action) => {
+
+export const Partners = (state = {}, action) => {
     switch (action.type) {
 
         case action.type.ADD_PARTNERS:
